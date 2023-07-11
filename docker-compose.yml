@@ -1,0 +1,16 @@
+version: '1'
+services:
+  client:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    image: node-docker
+    restart: unless-stopped
+    command: npm run start
+    volumes:
+      - .:/usr/app/
+      - /usr/app/node_modules
+    ports:
+      - "8000:8000"
+    container_name: node-docker
+    
